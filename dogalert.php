@@ -28,9 +28,9 @@
 </head>
 <body>
     <div class="topnav" id="myTopnav">
-        <a href="main.php"> Kezdőlap</a>
-        <a href="profilom.php">Profilom</a>
-        <a href="dogalert.php" class="active">DogAlert</a>
+        <a href="main.php" > Kezdőlap</a>
+        <a href="profil.php"><?PHP if($_SESSION['level']!=1){echo "Profilom";}else{ echo "Felhasználók";}?></a>
+        <a href="#" class="active">DogAlert</a>
         <a href="logout.php">Kijelentkezés</a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
@@ -125,6 +125,11 @@
         <?php }?>
    </div>
         </div>
+        <div class="row">
+        <footer class="col-12 col-t-12">
+            <p>Az oldal nem reprezentál valós vállalatot, csupán tanítási célokat szolgál.</p>
+        </footer>
+    </div>
         <script>
             function myFunction() {
                 var x = document.getElementById("myTopnav");

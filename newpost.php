@@ -1,5 +1,4 @@
 <?php
-    ob_start();
     if(!isset($_SESSION)) session_start();
     if(!isset($_SESSION["loggedin"])) 
     {
@@ -13,10 +12,10 @@
     }
     else
     {
-        $user = $_SESSION['user_name'];
-        $post_n =mysqli_real_escape_string($conn,$_POST['newp']);
         require_once("connection.php");
         $conn = connection_establish();
+        $user = $_SESSION['user_name'];
+        $post_n =mysqli_real_escape_string($conn,$_POST['newp']);
         $add_news = "INSERT INTO news (author, article) VALUES ('$user','$post_n');";
         $retval = mysqli_query($conn, $add_news);
         mysqli_close($conn);

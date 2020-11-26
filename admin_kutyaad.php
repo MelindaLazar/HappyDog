@@ -31,7 +31,8 @@ require_once("connection.php");
 </head>
 <body>
     <div class="topnav" id="myTopnav">
-        <a href="main.php"> Kezdőlap</a>
+        <a href="main.php" > Kezdőlap</a>
+        <a href="profil.php"><?PHP if($_SESSION['level']!=1){echo "Profilom";}else{ echo "Felhasználók";}?></a>
         <a href="dogalert.php">DogAlert</a>
         <a href="#" class="active">Kutya regisztrálás</a>
         <a href="logout.php">Kijelentkezés</a>

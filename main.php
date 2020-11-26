@@ -31,7 +31,7 @@
 <body>
     <div class="topnav" id="myTopnav">
         <a href="#" class="active"> Kezdőlap</a>
-        <a href="profilom.php">Profilom</a>
+        <a href="profil.php"><?PHP if($_SESSION['level']!=1){echo "Profilom";}else{ echo "Felhasználók";}?></a>
         <a href="dogalert.php">DogAlert</a>
         <a href="logout.php">Kijelentkezés</a>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -44,7 +44,7 @@
         ?>
         <h2>Frissítések</h2>
         <?php
-            $sql = "SELECT * FROM news";
+            $sql = "SELECT * FROM news ORDER BY create_date DESC";
             $query =mysqli_query($conn,$sql);
             if($query->num_rows <=0)
             {
