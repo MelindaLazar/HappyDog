@@ -6,7 +6,7 @@ if(!isset($_SESSION)) session_start();
        header("Location: login.php");
        exit;
    }
-   require_once("connection.php");
+    require_once("connection.php");
     $conn = connection_establish();
     $user = $_SESSION['user_name'];
     $newsID=$_POST["nid"];
