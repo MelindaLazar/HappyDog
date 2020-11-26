@@ -35,56 +35,82 @@
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
     <div class="row p">
-        <h1>Üdvözöllek! <?php echo $_SESSION['user_name']?></h1>
+        <div class="col-12 col-t-12">
+            <?php if ($_SESSION['level'] == 0) {?>
+            <h1>Találd meg a legjobb barátod</h1>
+        </div>
     </div>
     <div class="row p">
-        <?php if ($_SESSION['level'] == 0) {?>
-        <form action = "dogalert.php" method = 'POST'>
-            <?php require_once("connection.php");
-            $conn = connection_establish();
-            $szinek = array();
-            $query = "SELECT DISTINCT szin FROM kutya"; 
-            $resultasd = $conn->query($query);
-            foreach ($resultasd as $key => $value) {
-                array_push($szinek, $value['szin']);
-            }
-            $fajtak = array();
-            $query = "SELECT DISTINCT fajta FROM kutya"; 
-            $resultasd = $conn->query($query);
-            foreach ($resultasd as $key => $value) {
-                array_push($fajtak, $value['fajta']);
-            }
-            ?>
-            Szín: 
-            <?php 
-            foreach ($szinek as $key => $szin) {
-                echo "<input type = 'checkbox' name = 'color[]' value = '$szin'> $szin ";
-            }
-            echo "<br>Fajta: ";
-            foreach ($fajtak as $key => $fajta) {
-                echo "<input type = 'checkbox' name = 'type[]' value = '$fajta'> $fajta ";
-            }
-            echo "<br>";
-            ?>
-            
-            
-            <!--<input type = "checkbox" name = "color[]" value = "'Fekete'">Fekete <input type = "checkbox" name = "color[]" value = "'Kék'">Kék<br> -->
-            <!-- Fajta: <select name = "type[]" multiple>
-                        <option value = "'Labrador'">Labrador</option>
-                        <option value = "'Német Juhász'">Német Juhász</option>
-                   </select><br> -->
-            Nem: <input type = "radio" name = "gender" value = "Fiú"> Fiú <input type = "radio" name = "gender" value = "Lány"> Lány <br>
-            Kor: <select name = "age"><?php
-                echo "<option value = 'mindegy'>Mindegy</option>";
-                for($i = 1; $i<=20; $i++){
-                    echo "<option value = $i>$i</option>";
+        <h2>Kereső</h2>
+        <div class="col-12 col-t-12">
+            <form action = "dogalert.php" method = 'POST'  class="dogsearch">
+                <?php require_once("connection.php");
+                $conn = connection_establish();
+                $szinek = array();
+                $query = "SELECT DISTINCT szin FROM kutya"; 
+                $resultasd = $conn->query($query);
+                foreach ($resultasd as $key => $value) {
+                    array_push($szinek, $value['szin']);
                 }
-            ?></select>
-            <button type = "submit" name = "search">Keresés</button>
-        </form>
+                $fajtak = array();
+                $query = "SELECT DISTINCT fajta FROM kutya"; 
+                $resultasd = $conn->query($query);
+                foreach ($resultasd as $key => $value) {
+                    array_push($fajtak, $value['fajta']);
+                }
+                ?>
+                <table>
+                    <tr>
+                        <th>Szín</th>
+                        <th>Fajta</th>
+                        <th>Nem</th>
+                        <th>Kor</th>
+                    </tr>
+                    <tr>
+                        <td class="dst">
+                            <?php 
+                                foreach ($szinek as $key => $szin) {
+                                    echo "<input type = 'checkbox' name = 'color[]' value = '$szin'> $szin "."<br>";
+                                }
+                            ?>
+                        </td>
+                        <td class="dst">
+                            <?php
+                                foreach ($fajtak as $key => $fajta) {
+                                    echo "<input type = 'checkbox' name = 'type[]' value = '$fajta'> $fajta "."<br>";
+                                }
+                            ?>
+                        </td>
+                        <td class="dst">
+                            <input type = "radio" name = "gender" value = "Fiú"> Fiú <br>
+                            <input type = "radio" name = "gender" value = "Lány"> Lány
+                        </td>
+                        <td class="dst">
+                            <select name = "age"><?php
+                                echo "<option value = 'mindegy'>Mindegy</option>";
+                                for($i = 1; $i<=15; $i++){
+                                    echo "<option value = $i>$i</option>";
+                                }
+                            ?></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><br><button type = "submit" name = "search" class="btn btn_news">Keresés</button></td>
+                    </tr>
+                </table>
+                <!--<input type = "checkbox" name = "color[]" value = "'Fekete'">Fekete <input type = "checkbox" name = "color[]" value = "'Kék'">Kék<br> -->
+                <!-- Fajta: <select name = "type[]" multiple>
+                            <option value = "'Labrador'">Labrador</option>
+                            <option value = "'Német Juhász'">Német Juhász</option>
+                    </select><br> -->               
+            </form>
+        </div>
+    </div>
+    
+    <div class="row p">
+        <div class="col-12 col-t-12">
         <?php
             if (isset($_POST['search'])){
-                echo "<br><br>";
                 user_table();
             }
         ?>
@@ -97,17 +123,18 @@
             <br><br>
             <?php admin_kutyatad(); ?>
         <?php }?>
-    </div>
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myTopnav");
-            if (x.className === "topnav") {
-                x.className += " responsive";
-            } else {
-                x.className = "topnav";
-            }
-            }
-    </script>    
-</body>
+   </div>
+        </div>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+                }
+        </script>    
+    </body>
 </html>
 

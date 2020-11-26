@@ -54,18 +54,18 @@
         <table class="sizingnews">
             <?php while($row = mysqli_fetch_assoc($query)){?>
                 <tr>
-                    <td><spam class="news_titles"> Szerző:</spam> <?php echo $row["author"]; ?> </td>
+                    <td class="padtd"><spam class="news_titles"> Szerző:</spam> <?php echo $row["author"]; ?> </td>
                 </tr>
                 <tr>
-                    <td><spam class="news_titles">Közzététel dátuma: </spam><?php echo $row["create_date"]; ?> </td>
+                    <td class="padtd"><spam class="news_titles">Közzététel dátuma: </spam><?php echo $row["create_date"]; ?> </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="padtd">
                         <?php echo $row["article"]; ?> 
                     </td>
                 </tr>
                 <tr>
-                    <td>Kedvelések: <?php  $art_id=$row['article_id'];
+                    <td class="padtd">Kedvelések: <?php  $art_id=$row['article_id'];
                                             $query2 = "SELECT COUNT(*) c FROM likes WHERE article_id = $art_id;";
                                                             $result = mysqli_query($conn,$query2);
                                                             $row2 = mysqli_fetch_assoc($result);

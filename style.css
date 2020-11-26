@@ -5,7 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /*====ALTALANOS_ELEMEK====*/
-/*====ALTALANOS_ELEMEK====*/
+
 html {
     font-family: 'Raleway', sans-serif;
     letter-spacing: 1px;
@@ -52,6 +52,7 @@ h1{
 h2{
     letter-spacing: 2px;
     padding-left: 5%;
+    text-shadow: 3px 0px 0px #00000091;
 }
 .p{
     background-color:rgba(65,65,65,0.6);
@@ -209,7 +210,7 @@ text-shadow: 2px 2px 2px black;
     color:#25bcd5;
     font-weight: 700;
 }
-td{
+.padtd{
     padding-left:10%;
     padding-right: 10%;
 }
@@ -236,6 +237,34 @@ td{
     margin-left: 10%;
     margin-right: 10%;
 }
+/*====KUTYA REGISZTRÁLÁSA====*/
+.tableinputalign{
+    text-align: right;
+    font-size: 20px;
+}
+.tablealign{
+    width: 80%;
+    padding-right: 40%;
+    padding-left: 40%;
+}
+/*====KUTYA KERESÉS====*/
+.dogsearch{
+    width: 90%;
+    padding-left: 10%;
+}
+.dst{
+    border-right: solid;
+    border-bottom: outset;
+    border-width: 1px;
+    
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btn_fogldel{
+    background: rgb(228, 109, 109);
+    background-image: radial-gradient(circle, rgb(151, 41, 41) 0%, rgb(207, 85, 14) 100%);
+}
+
 /*====RESZPONZIVITAS====*/
 
 [class*="col-"] { /*mobile first*/

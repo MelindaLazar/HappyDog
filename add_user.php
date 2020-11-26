@@ -1,10 +1,5 @@
 <?php 
     ob_start();
-    if(!isset($_SESSION["loggedin"])) 
-    {
-        header("Location: login.php");
-        exit;
-    }
     if ((!isset($_POST['username']) && !isset($_POST['passw']) && !isset($_POST['passw2']))){
         header("Location: register.php");
         die;

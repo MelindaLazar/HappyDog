@@ -30,8 +30,8 @@
     <div class="row loginpage">
         <div class="col-6 col-t-12">
             <article>  
-                <h1>HappyDog</h1>
-                <p>A HappyDog közösségben megtalálod a helyed, ha csak egy kis nyugalomra vagy akár egy vidámságban, kutyaságban gazdag hétvégére vágysz.</p>
+                <h1>HappyDog!</h1>
+                <p>A HappyDog közösségben megtalálod a számodra megfelelő társat, barátot, családtagot.</p>
             </article>  
         </div>
         <div class="col-6 col-t-12">
